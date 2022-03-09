@@ -35,7 +35,7 @@ var _jsxFileName = "/home/adriano/programacao/padroeira_frontend/src/App.js",
 
 
 
-const API_URL = "http://localhost:3000/api/v1/lotes";
+const API_URL = "http://localhost:3100/api/v1/lotes";
 
 function getAPIData() {
   return axios__WEBPACK_IMPORTED_MODULE_1___default().get(API_URL).then(response => response.data);
