@@ -23,16 +23,21 @@ function CadastroLotes() {
   const [formValores, setformValores] = useState({});
 
   const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    const isCheckbox = type === "checkbox";
-
-    const data = formValores[name] || {};
-    if (isCheckbox) {
-      data[value] = checked;
-    }
-    const newValue = isCheckbox ? data : value;
-    setformValores({ ...formValores, [name]: newValue });
+    const { name, value } = e.target;
+    setformValores({ [name]: value });
   };
+
+  //  const handleInputChange = (e) => {
+  //    const { name, value, type, checked } = e.target;
+  //    const isCheckbox = type === "checkbox";
+  //
+  //    const data = formValores[name] || {};
+  //    if (isCheckbox) {
+  //      data[value] = checked;
+  //    }
+  //    const newValue = isCheckbox ? data : value;
+  //    setformValores({ ...formValores, [name]: newValue });
+  //  };
 
   //const dataSale = sale;
   //

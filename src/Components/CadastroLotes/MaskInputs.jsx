@@ -3,7 +3,13 @@ import InputMask from "react-input-mask";
 import { TextField } from "@mui/material";
 
 export const InputCadastroMunicipal = (props) => (
-  <InputMask mask="aa.99.99.99.99" alwaysShowMask={false} falsevalue={props.value} onChange={props.onChange}>
+  <InputMask
+    mask="aa.99.99.99.99"
+    alwaysShowMask={false}
+    falsevalue={props.value}
+    maskChar=""
+    onChange={props.onChange}
+  >
     {(inputProps) => (
       <TextField
         {...inputProps}
@@ -21,7 +27,7 @@ export const InputCadastroMunicipal = (props) => (
 );
 
 export const InputLote = (props) => (
-  <InputMask mask="99" false value={props.value} onChange={props.onChange}>
+  <InputMask mask="99" false value={props.value} onChange={props.onChange} maskChar="">
     {(inputProps) => (
       <TextField
         {...inputProps}
@@ -39,7 +45,7 @@ export const InputLote = (props) => (
 );
 
 export const InputQuadra = (props) => (
-  <InputMask mask="99" value={props.value} onChange={props.onChange}>
+  <InputMask mask="99" value={props.value} onChange={props.onChange} maskChar="">
     {(inputProps) => (
       <TextField
         {...inputProps}
@@ -56,7 +62,7 @@ export const InputQuadra = (props) => (
 );
 
 export const InputNumero = (props) => (
-  <InputMask mask="9999" value={props.value} onChange={props.onChange}>
+  <InputMask mask="9999" value={props.value} onChange={props.onChange} maskChar="">
     {(inputProps) => (
       <TextField
         {...inputProps}
@@ -72,7 +78,7 @@ export const InputNumero = (props) => (
 );
 
 export const InputArea = (props) => (
-  <InputMask mask="999.99" value={props.value} onChange={props.onChange}>
+  <InputMask mask="999.99" value={props.value} onChange={props.onChange} maskChar="">
     {(inputProps) => (
       <TextField
         {...inputProps}
@@ -89,7 +95,7 @@ export const InputArea = (props) => (
 );
 
 export const InputFrente = (props) => (
-  <InputMask mask="99.99" value={props.value} onChange={props.onChange}>
+  <InputMask mask="99.99" value={props.value} onChange={props.onChange} maskChar="">
     {(inputProps) => (
       <TextField
         {...inputProps}
@@ -106,7 +112,7 @@ export const InputFrente = (props) => (
 );
 
 export const InputLateral = (props) => (
-  <InputMask mask="99.99" value={props.value} onChange={props.onChange}>
+  <InputMask mask="99.99" value={props.value} onChange={props.onChange} maskChar="">
     {(inputProps) => (
       <TextField
         {...inputProps}
@@ -123,7 +129,7 @@ export const InputLateral = (props) => (
 );
 
 export const InputMatricula = (props) => (
-  <InputMask mask="999.999" value={props.value} onChange={props.onChange}>
+  <InputMask mask="999.999" value={props.value} onChange={props.onChange} maskChar="" cursorPosition="end">
     {(inputProps) => (
       <TextField
         {...inputProps}
@@ -140,7 +146,7 @@ export const InputMatricula = (props) => (
 );
 
 export const InputCartorio = (props) => (
-  <InputMask mask="9" value={props.value} onChange={props.onChange}>
+  <InputMask mask="9" value={props.value} onChange={props.onChange} maskChar="">
     {(inputProps) => (
       <TextField
         {...inputProps}
@@ -156,7 +162,7 @@ export const InputCartorio = (props) => (
 );
 
 export const InputValor = (props) => (
-  <InputMask mask="99.999" value={props.value} onChange={props.onChange}>
+  <InputMask mask="99.999" value={props.value} onChange={props.onChange} maskChar="">
     {(inputProps) => (
       <TextField
         {...inputProps}
