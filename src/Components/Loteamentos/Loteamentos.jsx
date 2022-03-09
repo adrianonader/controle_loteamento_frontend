@@ -29,7 +29,7 @@ function Loteamentos() {
   //
   const deleteLote = (e) => {
     if (window.confirm("Deseja apagar o lote?")) {
-      axios.delete(`http://localhost:3000/api/v1/lotes/${e}`).then((response) => {
+      axios.delete(`http://localhost:3100/api/v1/lotes/${e}`).then((response) => {
         alert("Lote apagado");
         getLotes();
         setLoteId(null);

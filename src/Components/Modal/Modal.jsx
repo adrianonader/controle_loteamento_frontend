@@ -20,7 +20,7 @@ const Modal = (props) => {
   };
   const changeLotes = () => {
     console.log(venda, "venda use changelotes");
-    axios.put(`http://localhost:3000/api/v1/lotes/${props.loteId.id}`, venda).then((response) => {
+    axios.put(`http://localhost:3100/api/v1/lotes/${props.loteId.id}`, venda).then((response) => {
       props.getLotes(response.data);
     });
   };

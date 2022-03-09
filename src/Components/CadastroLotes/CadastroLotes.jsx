@@ -43,7 +43,7 @@ function CadastroLotes() {
   const hanldeSubmit = (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:3000/api/v1/lotes", formValores).then((response) => {
+    axios.post("http://localhost:3100/api/v1/lotes", formValores).then((response) => {
       setLotes(response.data);
     });
   };
