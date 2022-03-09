@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+header {
+  background-color: #1572a1;
+  height: 40px;
+  position: relative;
+  width: 100%;
+}
+
+.menusanduiche {
+  color: white;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}

@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.navhead {
+  background-color: #6b6b6b;
+  height: 30px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.buttonnav {
+  display: block;
+  margin-left: 5px;
+  background-color: #8f8e8e;
+  border: none;
+  padding: 0px 7px;
+  border-radius: 5px;
+  font-weight: 900;
+  font-size: 20px;
+  text-decoration-line: underline 10px;
+}
+
+.navhead p {
+  margin-right: 5px;
+  color: aliceblue;
+}
+img {
+  max-width: 70px;
+  width: auto;
+  height: auto;
+}

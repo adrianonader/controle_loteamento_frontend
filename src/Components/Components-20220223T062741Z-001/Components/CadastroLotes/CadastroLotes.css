@@ -1,0 +1,24 @@
+.addloteamento {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.form-cadastro-loteamento {
+  padding-top: 50px;
+}
+.titulo {
+  padding-top: 50px;
+}
+.corpo-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.corpo-form2 {
+  padding-left: 9px;
+}
+
+.bt-cadastro {
+  margin-top: 40px;
+}

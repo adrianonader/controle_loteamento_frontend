@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { ApiLotesProvider, ApiLoteamentosProvider } from "./Components/Contexts/ApiProvider";
+import { ThemeProvider } from "@mui/material";
+import { LightTheme } from "./themes";
+import { BrowserRouter } from "react-router-dom";
+import { AppRoutes } from "./Routes/index.jsx";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ApiLoteamentosProvider>
+        <ApiLotesProvider>
+          <ThemeProvider theme={LightTheme}>
+            <BrowserRouter>
+              <AppRoutes />
+            </BrowserRouter>
+          </ThemeProvider>
+        </ApiLotesProvider>
+      </ApiLoteamentosProvider>
+    </>
   );
 }
 
