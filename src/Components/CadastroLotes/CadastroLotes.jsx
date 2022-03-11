@@ -16,6 +16,7 @@ import {
 } from "./MaskInputs";
 import "./CadastroLotes.css";
 import axios from "axios";
+import { apiLotes } from "../../Api/api";
 
 function CadastroLotes() {
   const { loteamentos } = useContext(ApiLoteamentosContext);
@@ -24,7 +25,7 @@ function CadastroLotes() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setformValores({ [name]: value });
+    setformValores({ ...formValores, [name]: value });
   };
 
   //  const handleInputChange = (e) => {
@@ -48,11 +49,15 @@ function CadastroLotes() {
   const hanldeSubmit = (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:3000/api/v1/lotes", formValores).then((response) => {
+    axios.post("http://localhost:3100/api/v1/lotes", formValores).then((response) => {
+      setLotes(response.data);
+    });
+
+    apiLotes.get("lotes").then((response) => {
+      console.log(" GETLOTES");
       setLotes(response.data);
     });
   };
-
   return (
     <div>
       <Container maxWidth="md">

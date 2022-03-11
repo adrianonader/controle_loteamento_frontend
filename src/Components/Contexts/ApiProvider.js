@@ -15,6 +15,7 @@ export const ApiLotesProvider = ({ children }) => {
 
 export const ApiLoteamentosProvider = ({ children }) => {
   const [loteamentos, setLoteamentos] = useState([]);
+
   useEffect(() => {
     apiLoteamentos.get("loteamentos").then(({ data }) => {
       setLoteamentos(data);

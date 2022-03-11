@@ -1,32 +1,22 @@
-import React, { useState, useContext } from "react";
-import { ApiLotesContext } from "../Contexts/ApiContext";
+import React from "react";
 import "./Modal.css";
 import axios from "axios";
 import AddClienteModal from "./AddClienteModal";
 
 const Modal = (props) => {
-  const { lotes, setLotes } = useContext(ApiLotesContext);
-  const [venda, setVenda] = useState(props.loteId);
-
   const handleInputChange = (e) => {
-    console.log(venda, "antes do set");
     const { name, checked } = e.target;
-    props.setLoteId((prevState) => ({ ...prevState, [name]: checked }));
-    setVenda(props.loteId);
 
-    console.log(venda, "depois do set");
-    console.log(props.loteId.vendido);
-    changeLotes();
-  };
-  const changeLotes = () => {
-    console.log(venda, "venda use changelotes");
-    axios.put(`http://localhost:3000/api/v1/lotes/${props.loteId.id}`, venda).then((response) => {
-      props.getLotes(response.data);
+    props.setLoteId((prevState) => ({ ...prevState, [name]: checked }));
+
+    axios.put(`http://localhost:3100/api/v1/lotes/${props.loteId.id}`, { [name]: checked }).then((response) => {
+      props.getLotes();
     });
   };
+
   return (
     <div className="fundo">
-      <div className="modal">
+      <div id="modal">
         <p className="fechar"></p>
         <div className="div-button-modal">
           <button onClick={props.onClose} className="fechar">
@@ -68,16 +58,18 @@ const Modal = (props) => {
             <p className="lote-item">{props.loteId.valor}</p>
           </div>
           <div className="Modal-dado-lote">
-            <label className="lote-item-titulo">
-              Vendido
-              <input
-                onChange={handleInputChange}
-                name="vendido"
-                type="checkbox"
-                value={venda}
-                checked={props.loteId.vendido}
-              />
-            </label>
+            <a href="#modal">
+              <label className="lote-item-titulo">
+                Vendido
+                <input
+                  onChange={handleInputChange}
+                  name="vendido"
+                  id="check"
+                  type="checkbox"
+                  checked={props.loteId.vendido}
+                />
+              </label>
+            </a>
           </div>
         </div>
         {props.loteId.vendido ? <AddClienteModal /> : null}

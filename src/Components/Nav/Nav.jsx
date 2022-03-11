@@ -75,7 +75,9 @@ function Nav() {
                       </Link>
                     </ListItemButton>
                     <ListItemButton sx={{ pl: 3 }}>
-                      <ListItemText secondary="Cadastro em lote" />
+                      <Link to={"cadvarioslotes"}>
+                        <ListItemText secondary="Cadastro em lote" />
+                      </Link>
                     </ListItemButton>
                   </List>
                 </Collapse>

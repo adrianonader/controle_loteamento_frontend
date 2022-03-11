@@ -17,19 +17,18 @@ function Loteamentos() {
 
   const getLotes = () => {
     apiLotes.get("lotes").then((response) => {
-      console.log("useffect lotemaneto");
-
+      console.log(" GETLOTES");
       setLotes(response.data);
     });
   };
 
-  //  useEffect(() => {
-  //    getLotes();
-  //  }, []);
-  //
+  useEffect(() => {
+    getLotes();
+  }, []);
+
   const deleteLote = (e) => {
     if (window.confirm("Deseja apagar o lote?")) {
-      axios.delete(`http://localhost:3000/api/v1/lotes/${e}`).then((response) => {
+      axios.delete(`http://localhost:3100/api/v1/lotes/${e}`).then((response) => {
         alert("Lote apagado");
         getLotes();
         setLoteId(null);
@@ -76,15 +75,7 @@ function Loteamentos() {
       </TableContainer>
 
       {loteId ? (
-        <Modal
-          lotes={lotes}
-          setLotes={setLotes}
-          loteId={loteId}
-          setLoteId={setLoteId}
-          onClose={onClose}
-          deleteLote={deleteLote}
-          getLotes={getLotes}
-        />
+        <Modal loteId={loteId} setLoteId={setLoteId} onClose={onClose} deleteLote={deleteLote} getLotes={getLotes} />
       ) : null}
     </>
   );
