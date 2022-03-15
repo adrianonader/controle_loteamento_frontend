@@ -57,13 +57,13 @@ function Nav() {
             <Box>
               <List component="nav" subheader={<ListSubheader component="div">Loteamentos</ListSubheader>}>
                 <ListItemButton>
-                  <Link to={"loteamento"}>
+                  <Link to={"loteamentos"}>
                     <ListItemText sx={{ fontSize: 16 }} secondary="Consultar" onClick={() => setToggle(false)} />
                   </Link>
                 </ListItemButton>
 
                 <ListItemButton onClick={handleClick}>
-                  <ListItemText secondary="Cadastrar loteamento" />
+                  <ListItemText secondary="Cadastrar lote" />
                   {open ? <ExpandLess /> : <ExpandMore />}
                 </ListItemButton>
 
@@ -76,11 +76,21 @@ function Nav() {
                     </ListItemButton>
                     <ListItemButton sx={{ pl: 3 }}>
                       <Link to={"cadvarioslotes"}>
-                        <ListItemText secondary="Cadastro em lote" />
+                        <ListItemText secondary="Cadastro em lote" onClick={() => setToggle(false)} />
                       </Link>
                     </ListItemButton>
                   </List>
                 </Collapse>
+                <ListItemButton>
+                  <Link to={"cadloteamento"}>
+                    <ListItemText
+                      sx={{ fontSize: 16 }}
+                      secondary=" Cadastrar loteamento"
+                      onClick={() => setToggle(false)}
+                    />
+                  </Link>
+                </ListItemButton>
+
                 <ListItemButton>
                   <Link to={"clientescadastro"}>
                     <ListItemText

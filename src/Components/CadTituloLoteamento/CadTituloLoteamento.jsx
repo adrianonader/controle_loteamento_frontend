@@ -1,28 +1,38 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { TextField, Container, Typography, Button } from "@mui/material";
+import axios from "axios";
+import { ApiLoteamentosContext } from "../Contexts/ApiContext";
 
-function CadTituloLoteamento(props) {
-  const [formValores, setformValores] = useState();
+function CadTituloLoteamento() {
+  const { loteamentos, setLoteamentos } = useContext(ApiLoteamentosContext);
+  const [nomeLoteamento, setNomeLoteamento] = useState();
+
   const handleInputChange = (e) => {
-    const valor = e.target.value;
+    const { name, value } = e.target;
 
-    setformValores(valor);
-    console.log(valor);
+    setNomeLoteamento({ [name]: value });
+    console.log(nomeLoteamento);
   };
 
-  const handleSubimit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    props.addLoteamento(formValores);
+    axios.post("http://localhost:3100/api/v1/loteamentos", nomeLoteamento).then((response) => {
+      setLoteamentos(response.data);
+      alert("Loteamento Cadastrado");
+    });
   };
 
   return (
     <>
-      <form onSubmit={handleSubimit}>
+      <form onSubmit={handleSubmit}>
         <Container maxWidth="sm">
+          <Typography variant="h4" className="titulo">
+            Cadastro de lote
+          </Typography>
           <div>
             <TextField
-              name="cadloteamento"
-              id="standard-basic"
+              name="nome"
+              id="nome"
               label="Nome do Loteamento"
               variant="standard"
               required
@@ -31,7 +41,7 @@ function CadTituloLoteamento(props) {
               onChange={handleInputChange}
             />
           </div>
-          <button>Cadastrar</button>
+          <button type="submit">Cadastrar</button>
         </Container>
       </form>
     </>

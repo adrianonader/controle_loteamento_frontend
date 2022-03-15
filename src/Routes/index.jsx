@@ -1,11 +1,13 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useParams } from "react-router-dom";
 import Nav from "../Components/Nav/Nav";
 import PaginaInicial from "../Components/PaginaInicial/PaginaInicial";
 import CadastroLotes from "../Components/CadastroLotes/CadastroLotes";
 import Loteamentos from "../Components/Loteamentos/Loteamentos";
-import TituloLoteamento from "../Components/CadTituloLoteamento/CadTituloLoteamento.jsx";
+import CadTituloLoteamento from "../Components/CadTituloLoteamento/CadTituloLoteamento.jsx";
 import Clientes from "../Components/Clientes/Clientes";
 import CadVariosLotes from "../Components/CadVariosLotes/CadVariosLotes";
+import Loteamento from "../Components/Loteamentos/Quadras/Loteamento";
+import Quadras from "../Components/Loteamentos/Quadras/Quadras";
 
 export const AppRoutes = () => {
   return (
@@ -15,9 +17,11 @@ export const AppRoutes = () => {
         <Route path="/" element={<PaginaInicial />} />
         <Route path="cadastro" element={<CadastroLotes />} />
         <Route path="cadvarioslotes" element={<CadVariosLotes />} />
-        <Route path="loteamento" element={<Loteamentos />} />
-        <Route path="cadloteamento" element={<TituloLoteamento />} />
+        <Route path="loteamentos" element={<Loteamentos />} />
+        <Route path="quadras/:ids" element={<Quadras />} />
 
+        <Route path="loteamento" element={<Loteamento />} />
+        <Route path="cadloteamento" element={<CadTituloLoteamento />} />
         <Route path="clientescadastro" element={<Clientes />} />
       </Routes>
     </>

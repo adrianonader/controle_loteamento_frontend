@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "./Modal.css";
 import axios from "axios";
 import AddClienteModal from "./AddClienteModal";
-
+import { ApiLoteamentosContext } from "../Contexts/ApiContext";
 const Modal = (props) => {
+  const { loteamentos, setLoteamentos } = useContext(ApiLoteamentosContext);
+  const { thisLoteamento, setThisLoteamento } = useState();
   const handleInputChange = (e) => {
     const { name, checked } = e.target;
 
@@ -13,10 +15,17 @@ const Modal = (props) => {
       props.getLotes();
     });
   };
+  var a = "";
+  console.log(props.loteId.loteamento_id);
+  if (props.loteId.vendido == true) {
+    var a = "-vendido";
+  }
 
+  console.log(thisLoteamento);
+  console.log("esses", loteamentos[props.loteId.loteamento_id].nome);
   return (
     <div className="fundo">
-      <div id="modal">
+      <div className={`modal${a}`}>
         <p className="fechar"></p>
         <div className="div-button-modal">
           <button onClick={props.onClose} className="fechar">
@@ -24,10 +33,15 @@ const Modal = (props) => {
           </button>
         </div>
         <div className="conttent"></div>
-        <h3>{props.loteId.loteamento_id}</h3>
+        <h3>{loteamentos[props.loteId.loteamento_id].nome}</h3>
         <h4 className="quadra-modal">
           <p>Quadra:</p> {props.loteId.cadastro_municipal}
         </h4>
+        <div className="modal-endereco">
+          <p className="endereco-item">{props.loteId.endereco}</p>
+          <p className="endereco-item">N°</p>
+          <p className="endereco-item">{props.loteId.numero ? props.loteId.numero : "s/cad"}</p>
+        </div>
         <div className="Modal-dados-lote">
           <div className="Modal-dado-lote">
             <p className="lote-item-titulo">nº do lote</p>
@@ -38,9 +52,10 @@ const Modal = (props) => {
             <p className="lote-item">{props.loteId.quadra}</p>
           </div>
           <div className="Modal-dado-lote">
-            <p className="lote-item-titulo">Endereço</p>
-            <p className="lote-item">{props.loteId.endereco}</p>
+            <p className="lote-item-titulo">Matrícula</p>
+            <p className="lote-item">{props.loteId.matricula ? props.loteId.matricula : "s/cad."}</p>
           </div>
+
           <div className="Modal-dado-lote">
             <p className="lote-item-titulo">Área</p>
             <p className="lote-item">{props.loteId.area}</p>
@@ -58,30 +73,37 @@ const Modal = (props) => {
             <p className="lote-item">{props.loteId.valor}</p>
           </div>
           <div className="Modal-dado-lote">
-            <a href="#modal">
-              <label className="lote-item-titulo">
-                Vendido
-                <input
-                  onChange={handleInputChange}
-                  name="vendido"
-                  id="check"
-                  type="checkbox"
-                  checked={props.loteId.vendido}
-                />
-              </label>
-            </a>
+            <label className="lote-item-titulo">
+              Vendido
+              <input onChange={handleInputChange} name="vendido" type="checkbox" checked={props.loteId.vendido} />
+            </label>
+          </div>
+        </div>
+        <div className="div-button-modal-apagar">
+          <div>
+            <button className={`middle-buttons${a}`} type="button" onClick={() => props.deleteLote(props.loteId.id)}>
+              Apagar
+            </button>
+          </div>
+
+          <div>
+            <button className={`middle-buttons${a}`}>Editar</button>
           </div>
         </div>
         {props.loteId.vendido ? <AddClienteModal /> : null}
 
         <div className="div-button-modal-apagar">
-          <button type="button" onClick={() => props.deleteLote(props.loteId.id)}>
+          <button className={`end-buttons${a}`} type="button" onClick={() => props.deleteLote(props.loteId.id)}>
             Apagar
           </button>
-          <button type="button">Editar</button>
+          <button className={`end-buttons${a}`} type="button">
+            Concluir venda
+          </button>
+          <button className={`end-buttons${a}`} type="button">
+            Editar
+          </button>
         </div>
       </div>
-      <p className="final-modal">xxx </p>
     </div>
   );
 };
