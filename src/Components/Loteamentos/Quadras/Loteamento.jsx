@@ -1,29 +1,25 @@
 import React, { useContext, useEffect, useState } from "react";
-import { ApiLotesContext } from "../../Contexts/ApiContext";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+import { ApiLotesContext, ApiLoteamentosContext } from "../../Contexts/ApiContext";
+import { Table, TableBody, TableHead, TableRow, TableCell } from "@mui/material";
 import { Tituloh2 } from "./LoteamentoStyle";
 import Modal from "../../Modal/Modal";
 import axios from "axios";
 import { apiLotes } from "../../../Api/api";
+import { useParams } from "react-router-dom";
+import "./Loteamento.css";
+
 function Loteamento() {
   const { lotes, setLotes } = useContext(ApiLotesContext);
+  const { loteamentos } = useContext(ApiLoteamentosContext);
   const [loteId, setLoteId] = useState();
+  const { ids, cad_quadra } = useParams();
+  const getLotes = () => {};
 
-  const getLotes = () => {
+  useEffect(() => {
     apiLotes.get("lotes").then((response) => {
       console.log(" GETLOTES");
       setLotes(response.data);
     });
-  };
-
-  useEffect(() => {
-    getLotes();
   }, []);
 
   const deleteLote = (e) => {
@@ -35,21 +31,26 @@ function Loteamento() {
       });
     }
   };
-
+  console.log(useParams());
   function onClose() {
     setLoteId(null);
   }
+  console.log(loteamentos);
+  console.log(ids);
+  const lotesquadraid = useParams();
+  const teste = ids;
+  const lotesformap = lotes.filter((lote) => lote.cadastro_municipal == lotesquadraid.qd).map((a) => a);
 
   return (
     <>
-      <Tituloh2>Loteamento Debortole</Tituloh2>
+      <Tituloh2>1</Tituloh2>
 
-      <TableContainer component={Paper}>
+      <div className="table-body">
         <Table sx={{ minWidth: 550, maxWidth: 700, m: "auto" }} size="small" aria-label="a dense table">
           <TableHead>
             <TableRow>
               <TableCell align="left">Terrenos</TableCell>
-              <TableCell align="right">Quadra</TableCell>
+
               <TableCell align="right">Lote</TableCell>
               <TableCell align="right">Área m²</TableCell>
               <TableCell align="right">Valor</TableCell>
@@ -58,12 +59,13 @@ function Loteamento() {
           </TableHead>
 
           <TableBody>
-            {lotes.map((lote) => (
+            {lotesformap.map((lote) => (
               <TableRow onClick={() => setLoteId(lote)} key={lote.id} sx={{ border: 0 }}>
                 <TableCell component="th" scope="row">
                   {lote.cadastro_municipal}
                 </TableCell>
                 <TableCell align="right">{lote.loteamento}</TableCell>
+                <TableCell align="right">{lote.quadra}</TableCell>
                 <TableCell align="right">{lote.frente}</TableCell>
                 <TableCell align="right">{lote.area}</TableCell>
                 <TableCell align="right">{lote.valor}</TableCell>
@@ -72,7 +74,7 @@ function Loteamento() {
             ))}
           </TableBody>
         </Table>
-      </TableContainer>
+      </div>
 
       {loteId ? (
         <Modal loteId={loteId} setLoteId={setLoteId} onClose={onClose} deleteLote={deleteLote} getLotes={getLotes} />

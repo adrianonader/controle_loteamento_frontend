@@ -9,7 +9,9 @@ ul {
 
   color: rgb(87, 87, 87);
 }
-
+.card-quadras-title {
+  text-decoration: none;
+}
 .nome-loteamento {
   padding: 80px 50px 20px 0px;
 }

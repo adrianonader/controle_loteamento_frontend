@@ -1,0 +1,99 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+.card-quadras-corpo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  transition: 1s;
+  width: 800px;
+}
+
+.card-quadras-corpolateral {
+  flex-direction: column;
+  position: fixed;
+  justify-content: space-around;
+  right: 10px;
+  transition: 1s;
+  margin-top: -35px;
+  height: 500px;
+
+  overflow: auto;
+  width: auto;
+}
+
+.card-detalhe-quadralateral {
+  display: flow-root;
+  visibility: absolute;
+  height: 1px;
+  opacity: 0;
+  transition: 0.4s;
+}
+.card-detalhe-quadralateral:hover {
+  position: relative;
+  height: 32px;
+  opacity: 1;
+}
+.card-quadras {
+  background-color: rgb(245, 245, 245);
+  box-shadow: 0.1px 0.1px 1.5px rgb(139, 139, 139);
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 3px;
+}
+
+.card-quadras:hover {
+  background-color: rgb(250, 250, 250);
+  box-shadow: 0.2px 0.2px 3px rgb(139, 139, 139);
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 3px;
+}
+.card-quadraslateral {
+  background-color: rgb(245, 245, 245);
+  box-shadow: 0.1px 0.1px 1.5px rgb(139, 139, 139);
+  padding: 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-top: 7px;
+  margin-left: 2px;
+  margin-right: 3px;
+}
+
+.card-quadras-title {
+  text-decoration: none;
+  color: rgb(39, 39, 39);
+}
+
+.card-quadras-quadra {
+  text-decoration: none;
+  color: black;
+  padding-bottom: 10px;
+  font-size: 13px;
+}
+.card-quadras-quadralateral {
+  text-decoration: none;
+  color: black;
+
+  font-size: 11px;
+}
+
+.card-quadras-corpolateral::-webkit-scrollbar {
+  width: 2px; /* width of the entire scrollbar */
+}
+
+.card-quadras-corpolateral::-webkit-scrollbar-track {
+  background: rgba(226, 6, 6, 0); /* color of the tracking area */
+}
+
+.card-quadras-corpolateral::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.199); /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+}

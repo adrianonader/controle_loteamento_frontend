@@ -5,9 +5,9 @@
 }
 
 .navhead {
-  background-color: #6b6b6b;
+  background-color: rgba(0, 0, 0, 0.7);
   height: 30px;
-  position: relative;
+  position: fixed;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -16,10 +16,10 @@
 .buttonnav {
   display: block;
   margin-left: 5px;
-  background-color: #8f8e8e;
+  background-color: rgba(150, 150, 150, 0.7);
   border: none;
   padding: 0px 7px;
-  border-radius: 5px;
+  border-radius: 2px;
   font-weight: 900;
   font-size: 20px;
   text-decoration-line: underline 10px;

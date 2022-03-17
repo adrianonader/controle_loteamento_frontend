@@ -1,0 +1,60 @@
+.hr {
+  position: absolute;
+  background-color: rgb(201, 201, 201);
+  height: 0.1px;
+  padding: 0 60px;
+  margin-left: -7px;
+  margin-top: -3px;
+}
+.hrlateral {
+  opacity: 0;
+}
+
+.detalhecard-corpo {
+  display: grid;
+  grid-template-columns: 105px;
+  grid-template-rows: 3;
+  margin-top: 7px;
+}
+.detalhecard-corpolateral {
+  display: grid;
+  grid-template-columns: 88px;
+  grid-template-rows: 3;
+  margin-top: 3px;
+}
+.detalhecard-corpo-item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1px;
+}
+.detalhecard-corpo-itemlateral {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1px;
+}
+.detalhecard-titulo {
+  text-decoration: none;
+  color: rgb(54, 54, 54);
+  font-size: 10px;
+  font-weight: 400;
+}
+.detalhecard-titulolateral {
+  text-decoration: none;
+  color: rgb(54, 54, 54);
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.detalhecard-dado {
+  text-decoration: none;
+  color: rgb(54, 54, 54);
+  font-size: 10px;
+  font-weight: 550;
+}
+
+.detalhecard-dadolateral {
+  text-decoration: none;
+  color: rgb(54, 54, 54);
+  font-size: 10px;
+  font-weight: 550;
+}
